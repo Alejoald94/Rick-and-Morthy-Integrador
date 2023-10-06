@@ -4,7 +4,7 @@ Este es mi proyecto integrador donde he creado una aplicación basada en la seri
 
 La aplicación está construida utilizando React con Vite para un desarrollo más rápido y eficiente. Además, cuenta con Hot Module Replacement (HMR) y algunas reglas de ESLint para mantener la calidad del código.
 
-<img src="https://github.com/Alejoald94/Rick-and-Morthy-Integrador/raw/master/src/fondos/pickle-rick.gif" alt="Pickle Rick" width="300"/>
+<img src="https://github.com/Alejoald94/Rick-and-Morthy-Integrador/raw/master/src/fondos/pickle-rick.gif" alt="Pickle Rick" width="100"/>
 
 
 ## Instalación
