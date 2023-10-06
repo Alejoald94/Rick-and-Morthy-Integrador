@@ -15,3 +15,7 @@ npm install
 npm run dev
 
 Gracias
+<p align="right">
+  <img src="./src/fondos/pickle-rick.gif" alt="Pickle Rick" width="100px">
+</p>
+
