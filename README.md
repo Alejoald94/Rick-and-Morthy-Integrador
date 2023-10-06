@@ -15,7 +15,8 @@ npm install
 npm run dev
 
 Gracias
-![Pickle Rick](https://github.com/Alejoald94/Rick-and-Morthy-Integrador/raw/main/src/fondos/pickle-rick.gif)
+![Pickle Rick](https://github.com/Alejoald94/Rick-and-Morthy-Integrador/raw/master/src/fondos/pickle-rick.gif)
+
 
 
 
