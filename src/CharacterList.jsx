@@ -5,11 +5,9 @@ import pickleRickAudio from './audios/Rick.mp3';
 
 function PickleRick() {
     const audioRef = React.useRef(null);
-
     const playAudio = () => {
         audioRef.current.play();
     };
-
     return (
         <div 
             style={{
@@ -27,9 +25,6 @@ function PickleRick() {
         </div>
     );
 }
-
-
-
 function CharacterList() {
     const [favorites, setFavorites] = useState([]);  // Favoritos
     const [view, setView] = useState('all');  // Vista actual
@@ -61,14 +56,11 @@ function CharacterList() {
             origin: '',
             location: ''
         });
+        setLocationCharacters([]);
         setCurrentPage(1);
-        setView('all');  // Añade esta línea
+        setView('all');
         fetchCharacters();
     };
-    
-    
-    
-
     const fetchCharacters = async () => {
         try {
             const response = await api.get(`character?page=${currentPage}`, {
@@ -87,8 +79,6 @@ function CharacterList() {
             console.error('Error fetching characters:', error);
         }
     };
-    
-
     const fetchLocations = async () => {
         try {
             const response = await api.get('location');
@@ -98,13 +88,6 @@ function CharacterList() {
             console.error('Error fetching locations:', error);
         }
     };
-
-    const handleSearch = () => {
-        setCurrentPage(1);
-        fetchCharacters();
-    };
-    
-
     const handleRandom = async () => {
         try {
             const totalCharacters = 671; // según la API actual
@@ -122,8 +105,6 @@ function CharacterList() {
             setFavorites(prev => [...prev, character]);
         }
     };
-    
-
     const handleFilterChange = (e) => {
         const { name, value } = e.target;
         if (name === "location") {
@@ -140,7 +121,6 @@ function CharacterList() {
             fetchCharacters();
             return;
         }
-   
         try {
             const locationResponse = await api.get('location', {
                 params: {
@@ -162,23 +142,17 @@ function CharacterList() {
             console.error('Error fetching characters for location:', error);
         }
     };
-    
     const handleViewToggle = () => {
         setView(prev => prev === 'all' ? 'favorites' : 'all');
     };
     const handleLogout = () => {
-        // Activar la animación de romperse
         setIsDisintegrating(true);
     
-        // Después de la duración de la animación (2 segundos en este caso), proceder con el cierre de sesión.
         setTimeout(() => {
-            // Elimina el token o datos de sesión
             localStorage.removeItem('authToken');
-        
-            // Redirige al usuario a la página de inicio de sesión
-            window.location.href = '/login'; // Asume que '/login' es tu ruta de inicio de sesión
-        }, 2000);  // 2000ms = 2s
-    };
+            window.location.href = '/login'; 
+        }, 2000); 
+    };    
      const containerStyle = {
         display: 'flex',
         flexDirection: 'column',
@@ -193,7 +167,6 @@ function CharacterList() {
         overflow: 'auto',
         fontFamily: "'Arial', sans-serif"
     };
-
     const rowStyle = {
         display: 'flex',
         flexWrap: 'wrap',
@@ -203,12 +176,9 @@ function CharacterList() {
         marginTop: '20px',
         gap: '20px'
     };
-
     const cardVariations = [
         { backgroundColor: '#FFE4B5', borderColor: '#FFDAB9', borderWidth: '2px' },
-        // ... (otros colores)
     ];
-
     const cardStyle = {
         ...cardVariations[0], 
         flexBasis: 'calc(20% - 20px)', 
@@ -223,7 +193,6 @@ function CharacterList() {
             boxShadow: '0 5px 25px rgba(0, 0, 0, 0.15)'
         }
     };
-
     const imageStyle = {
         width: '100%',
         borderTopLeftRadius: '10px',
@@ -231,7 +200,6 @@ function CharacterList() {
         borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
         marginBottom: '15px'
     };
-
     const searchStyle = {
         display: 'flex',
         alignItems: 'center',
@@ -240,7 +208,6 @@ function CharacterList() {
         marginTop: '20px',
         marginBottom: '20px'
     };
-
     const inputStyle = {
         padding: '10px 20px',
         border: '2px solid #007BFF',
@@ -250,7 +217,6 @@ function CharacterList() {
     };
     const containerStyleWithAnimation = isDisintegrating ? 
     { ...containerStyle, animation: "shatter 2s forwards" } : containerStyle;
-
     return (
         <div style={containerStyleWithAnimation}>
             <h2>Personajes</h2>
@@ -280,9 +246,6 @@ function CharacterList() {
                         <option key={location.id} value={location.name}>{location.name}</option>
                     ))}
                 </select>
-
-                
-
                 <button onClick={handleRandom}>
                     Random
                 </button>
@@ -293,15 +256,13 @@ function CharacterList() {
                 <button onClick={handleReset}>
                    Reset
                 </button>
-
             </div>
-            
             <div style={rowStyle}>
-        {(view === 'all' 
-            ? (locationCharacters.length > 0 ? locationCharacters : characters)
-            : favorites)
-        .slice(0, 8).map((character) => (
-        <div style={cardStyle} key={character.id}>
+                {(view === 'all' 
+                ? (locationCharacters.length > 0 ? locationCharacters : characters)
+                : favorites)
+                .slice(0, 8).map((character) => (
+            <div style={cardStyle} key={character.id}>
             <div className="img">
                 <img src={character.image} alt={character.name} style={imageStyle} />
             </div>
@@ -320,7 +281,6 @@ function CharacterList() {
         </div>
     ))}
     <PickleRick />
-
 </div>
 {view === 'all' && totalPages > 1 && (
             <Pagination 
@@ -332,20 +292,16 @@ function CharacterList() {
 </div>
     );
 }
-
-
 const Pagination = ({ totalPages, currentPage, onPageChange }) => {
     const goToPreviousPage = () => onPageChange(prev => Math.max(prev - 1, 1));
     const goToNextPage = () => onPageChange(prev => Math.min(prev + 1, totalPages));
     const goToPage = (number) => onPageChange(number);
-
     const paginationStyle = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: '20px'
     };
-
     const buttonBaseStyle = {
         padding: '10px 20px',
         margin: '0 10px',
@@ -358,14 +314,12 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
         backgroundColor: 'rgba(255, 255, 255, 0.95)', 
         color: '#007BFF'
     };
-
     const activeButtonStyle = {
         ...buttonBaseStyle,
         backgroundColor: '#007BFF',
         color: 'white',
         transform: 'scale(1.05)'
     };
-
     const inactiveButtonStyle = {
         ...buttonBaseStyle,
         ':hover': {
@@ -373,27 +327,21 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
             transform: 'scale(1.05)'
         }
     };
-
     let startPage = currentPage - 2;
     let endPage = currentPage + 1;
-
     if (startPage <= 1) {
         startPage = 1;
         endPage = 4;
     }
-
     if (endPage > totalPages) {
         startPage = totalPages - 3;
         endPage = totalPages;
     }
-
     if (totalPages <= 4) {
         startPage = 1;
         endPage = totalPages;
     }
-
     const pagesToShow = [...Array(endPage + 1 - startPage).keys()].map(i => i + startPage);
-
     return (
         <div style={paginationStyle}>
             <button 
@@ -422,5 +370,4 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
         </div>
     );
 }
-
 export default CharacterList;
