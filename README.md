@@ -1,8 +1,17 @@
-# React + Vite
+# Rick and Morty App con React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es mi proyecto integrador donde he creado una aplicación basada en la serie "Rick and Morty". Esta aplicación permite a los usuarios explorar y conocer más sobre los personajes, ubicaciones y otros aspectos interesantes del universo de la serie.
 
-Currently, two official plugins are available:
+La aplicación está construida utilizando React con Vite para un desarrollo más rápido y eficiente. Además, cuenta con Hot Module Replacement (HMR) y algunas reglas de ESLint para mantener la calidad del código.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalación
+
+1. Clona este repositorio a tu máquina local.
+```bash
+git clone https://github.com/Alejoald94/Rick-and-Morthy-Integrador.git
+
+cd Rick-and-Morthy-Integrador
+npm install
+npm run dev
+
+Gracias
