@@ -7,18 +7,18 @@ La aplicación está construida utilizando React con Vite para un desarrollo má
 ## Instalación
 
 1. Clona este repositorio a tu máquina local.
+
 ```bash
 git clone https://github.com/Alejoald94/Rick-and-Morthy-Integrador.git
-
 cd Rick-and-Morthy-Integrador
 npm install
 npm run dev
+Agradecimientos
+Gracias por usar y/o contribuir a este proyecto.
 
-Gracias
+Pickle Rick
 
 
-
-![Pickle Rick](https://github.com/Alejoald94/Rick-and-Morthy-Integrador/raw/master/src/fondos/pickle-rick.gif)
 
 
 
