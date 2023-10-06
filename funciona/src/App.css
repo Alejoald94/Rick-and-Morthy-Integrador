@@ -1,0 +1,14 @@
+.App {
+  background-image: url('./fondos/fondologin.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+
+  /* Estos estilos aseguran que todo esté centrado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

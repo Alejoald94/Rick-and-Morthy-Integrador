@@ -1,0 +1,13 @@
+@keyframes matrixEffect {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 100%;
+    }
+}
+
+.matrixBackground {
+    background: black url('path_to_matrix_pattern.png') repeat;
+    animation: matrixEffect 10s linear infinite;
+}

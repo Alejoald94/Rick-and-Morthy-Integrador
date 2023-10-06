@@ -1,0 +1,4 @@
+usuario1@example.com:password1
+usuario2@example.com:password2
+
+background-image: url('./fondos/elegir.jpg');
